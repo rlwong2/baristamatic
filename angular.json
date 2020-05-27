@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "BaristaMatic"
+    }
+  },
+  "defaultProject": "BaristaMatic",
+  "cli": {
+    "analytics": "e11920c0-98d7-4b20-8df2-a55278d5dfc3"
+  }
 }
