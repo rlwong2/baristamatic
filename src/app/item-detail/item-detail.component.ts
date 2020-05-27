@@ -6,8 +6,10 @@ import { Item } from '../item';
   templateUrl: './item-detail.component.html',
   styleUrls: ['./item-detail.component.css']
 })
-export class ItemDetailComponent implements OnInit {
 
+export class ItemDetailComponent implements OnInit {
+  @Input() item: Item;
+  
   constructor() { }
 
   ngOnInit(): void {

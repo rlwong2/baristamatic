@@ -1,4 +1,5 @@
 <div *ngIf="item">
+
     <h2>{{item.name | uppercase}} Details</h2>
     <div><span>id: </span>{{item.id}}</div>
     <div>
@@ -6,4 +7,5 @@
             <input [(ngModel)]="item.name" placeholder="name"/>
         </label>
     </div>
+    
 </div>
