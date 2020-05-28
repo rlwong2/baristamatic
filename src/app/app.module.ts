@@ -21,7 +21,6 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
