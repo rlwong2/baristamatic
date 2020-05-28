@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../menuItem';
 import { MenuService } from '../menu.service';
-
+import { MENUITEMS } from '../menuItems'
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +9,7 @@ import { MenuService } from '../menu.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  menuItems: MenuItem[];
+  menuItems: MenuItem[] = MENUITEMS;
   menuWithPrices: object;
 
   constructor(
