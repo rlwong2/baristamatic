@@ -11,7 +11,7 @@ import { PriceService } from './price.service'
   providedIn: 'root'
 })
 export class MenuService {
-  private menuUrl = 'api/menu';
+  private menuUrl = 'api/menuItems';
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
