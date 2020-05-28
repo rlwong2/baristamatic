@@ -13,6 +13,7 @@ export class InventoryComponent implements OnInit {
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
+    this.getItems();
   }
 
   selectedItem: Item;
@@ -21,7 +22,7 @@ export class InventoryComponent implements OnInit {
   }
 
   getItems(): void {
-    this.items = this.itemService.getItems();
+    this.itemService.getItems().subscribe(items => this.items = items)
   }
 
 }
