@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../menuItem';
-import { MENUITEMS } from '../menuItems';
-import { PriceService } from '../price.service';
 import { MenuService } from '../menu.service';
 
 
@@ -11,11 +9,15 @@ import { MenuService } from '../menu.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  menuItems = MENUITEMS;
+  menuItems: MenuItem[];
+  menuWithPrices: object;
 
-  constructor() { }
+  constructor(
+    private menuService: MenuService
+  ) { }
 
   ngOnInit(): void {
+    this.getMenu();
   }
 
   selectedItem: MenuItem;
@@ -24,6 +26,9 @@ export class MenuComponent implements OnInit {
   }
 
   getMenu(): void {
-    this.MenuService.getMenu().subscribe(menuItems => this.menuItems = menuItems)
+    let menu = this.menuService.getMenu().subscribe(menuItems => {
+      this.menuWithPrices = this.menuService.calcPrices(menuItems)
+    })
+    
   }
 }

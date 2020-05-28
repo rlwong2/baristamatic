@@ -5,7 +5,7 @@ import { INGREDIENTS } from './ingredients'
   providedIn: 'root'
 })
 export class PriceService {
-  calcPrices(menuItems: Array<object>) {
+  calcPrices(menuItems: Array<any>) {
     let prices = {}
     menuItems.forEach((item) => {
       let total = 0;
