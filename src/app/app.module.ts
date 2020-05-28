@@ -9,12 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InventoryComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
