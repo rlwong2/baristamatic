@@ -6,16 +6,29 @@ import { INGREDIENTS } from './ingredients'
 })
 export class PriceService {
   calcPrices(menuItems: Array<any>) {
-    let prices = {}
+    let prices = []
     menuItems.forEach((item) => {
       let total = 0;
+      
       for (var k of INGREDIENTS) {
         total += k.price * item.ingredients[k.name]
       }
-      prices[k.name] = total;
+      let obj = {
+        name: item.name,
+        price: total,
+      }
+      prices.push(obj);
     })
 
     console.log(prices);
     return prices;
+  }
+
+  buyItem(menuItem: string, menuItems: Array<any>) {
+    for (var k of menuItems) {
+      if (k.name === menuItem) {
+        
+      }
+    }
   }
 }

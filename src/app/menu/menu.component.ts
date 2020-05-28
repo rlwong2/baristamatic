@@ -26,9 +26,11 @@ export class MenuComponent implements OnInit {
   }
 
   getMenu(): void {
-    let menu = this.menuService.getMenu().subscribe(menuItems => {
-      this.menuWithPrices = this.menuService.calcPrices(menuItems)
+    this.menuService.getMenu().subscribe(menuItems => {
+      this.menuItems = menuItems;
     })
-    
+    let menu =  this.menuItems === undefined ? MENUITEMS : this.menuItems;
+      this.menuWithPrices = this.menuService.calcPrices(menu)
+      console.log(this.menuWithPrices)
   }
 }

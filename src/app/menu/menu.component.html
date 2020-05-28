@@ -1,7 +1,7 @@
 <h2>Menu</h2>
 
 <ul class="menuItems">
-    <li *ngFor="let menuItem of menuItems" (click)="onSelect(menuItem)"> 
-      {{ menuItem.name }}
+    <li *ngFor="let menuItem of menuWithPrices" (click)="onSelect(menuItem)"> 
+      {{ menuItem.name }} - {{ menuItem.price.toFixed(2) }}
     </li>
   </ul>
