@@ -1,6 +1,6 @@
-import { menuItem } from './menuItem';
+import { MenuItem } from './menuItem';
 
-export const MENUITEMS: menuItem[] = [
+export const MENUITEMS: MenuItem[] = [
     { id: 1, name: 'Coffee', ingredients: {
         'Coffee': 3,
         'Decaf Coffee': 0,
