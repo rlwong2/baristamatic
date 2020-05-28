@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Item } from './item';
+import { Ingredient } from './ingredient';
 
 @Injectable({
   providedIn: 'root'
@@ -8,17 +8,17 @@ import { Item } from './item';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const items = [
+    const ingredients = [
       { id: 1, name: 'Coffee' },
       { id: 2, name: 'Decaf Coffee' },
       { id: 3, name: 'Sugar' },
       { id: 4, name: 'Cream' },
       { id: 5, name: 'Steamed Milk' }
     ];
-    return {items};
+    return {ingredients};
   }
 
-  genId(items: Item[]): number {
-    return items.length > 0 ? Math.max(...items.map(item => item.id)) + 1 : 11;
+  genId(ingredients: Ingredient[]): number {
+    return ingredients.length > 0 ? Math.max(...ingredients.map(ingredients => ingredients.id)) + 1 : 11;
   }
 }

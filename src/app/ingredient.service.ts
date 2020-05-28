@@ -3,15 +3,15 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Item } from './item';
-import { ITEMS } from './items';
+import { Ingredient } from './ingredient';
+import { INGREDIENTS } from './ingredients';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ItemService {
-  private itemsUrl = 'api/items';
+export class IngredientService {
+  private ingredientsUrl = 'api/ingredients';
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -31,11 +31,11 @@ export class ItemService {
     private http: HttpClient,
   ) { }
 
-  getItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.itemsUrl)
+  getItems(): Observable<Ingredient[]> {
+    return this.http.get<Ingredient[]>(this.ingredientsUrl)
       .pipe(
         tap(_ => console.log('fetched items')),
-        catchError(this.handleError<Item[]>('getItems', []))
+        catchError(this.handleError<Ingredient[]>('getItems', []))
       );
   }
 }

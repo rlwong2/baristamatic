@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../item';
-import { ItemService } from '../item.service';
+import { Ingredient } from '../ingredient';
+import { IngredientService } from '../ingredient.service';
 
 @Component({
   selector: 'app-inventory',
@@ -8,21 +8,21 @@ import { ItemService } from '../item.service';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  items: Item[];
+  ingredients: Ingredient[];
 
-  constructor(private itemService: ItemService) { }
+  constructor(private ingredientService: IngredientService) { }
 
   ngOnInit(): void {
     this.getItems();
   }
 
-  selectedItem: Item;
-  onSelect(item: Item): void {
-    this.selectedItem = item;
+  selectedItem: Ingredient;
+  onSelect(ingredient: Ingredient): void {
+    this.selectedItem = ingredient;
   }
 
   getItems(): void {
-    this.itemService.getItems().subscribe(items => this.items = items)
+    this.ingredientService.getItems().subscribe(ingredients => this.ingredients = ingredients)
   }
 
 }

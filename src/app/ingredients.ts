@@ -1,6 +1,6 @@
-import { Item } from './item';
+import { Ingredient } from './ingredient';
 
-export const ITEMS: Item[] = [
+export const INGREDIENTS: Ingredient[] = [
     { id: 1, name: 'Coffee', price: 0.75 },
     { id: 2, name: 'Decaf Coffee', price: 0.75 },
     { id: 3, name: 'Expresso', price: 0.75 },

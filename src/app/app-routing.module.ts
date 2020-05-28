@@ -4,7 +4,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 
 
 const routes: Routes = [
-  { path: 'items', component: InventoryComponent }
+  { path: 'ingredients', component: InventoryComponent }
 ];
 
 @NgModule({

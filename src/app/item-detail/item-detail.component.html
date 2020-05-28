@@ -1,10 +1,10 @@
-<div *ngIf="item">
+<div *ngIf="ingredient">
 
-    <h2>{{item.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{item.id}}</div>
+    <h2>{{ingredient.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{ingredient.id}}</div>
     <div>
         <label>name: 
-            <input [(ngModel)]="item.name" placeholder="name"/>
+            <input [(ngModel)]="ingredient.name" placeholder="name"/>
         </label>
     </div>
     
