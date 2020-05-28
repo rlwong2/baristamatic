@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../item';
-import { ITEMS } from '../items';
+import { ItemService } from '../item.service';
 
 @Component({
   selector: 'app-inventory',
@@ -8,9 +8,9 @@ import { ITEMS } from '../items';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  items = ITEMS;
+  items: Item[];
 
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +18,10 @@ export class InventoryComponent implements OnInit {
   selectedItem: Item;
   onSelect(item: Item): void {
     this.selectedItem = item;
+  }
+
+  getItems(): void {
+    this.items = this.itemService.getItems();
   }
 
 }
