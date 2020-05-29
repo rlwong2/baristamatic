@@ -34,10 +34,10 @@ export class MenuComponent implements OnInit {
     this.selectedItem = menuItem;
 
     let result = this.priceService.buyItem(this.ingredients, menuItem);
-    this.ingredients = result === false ? this.ingredients : result;
+    this.ingredients = result[1];
 
     // display error message if not enough inventory
-    if (result === false) {
+    if (result[0] === false) {
       this.message = 'Not enough ingredients in inventory.  Please select another drink or ask attendant to restock.'
       setTimeout(() => this.message = '', 3000)
     }

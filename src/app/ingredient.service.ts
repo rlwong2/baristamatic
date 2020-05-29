@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 import { Ingredient } from './ingredient';
 import { INGREDIENTS } from './ingredients';
-
+import { PriceService } from './price.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IngredientService {
-  inventory: Array<any>;
+  private inventorySource = new BehaviorSubject(INGREDIENTS);
   private ingredientsUrl = 'api/ingredients';
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -30,7 +31,10 @@ export class IngredientService {
 
   constructor(
     private http: HttpClient,
+    private PriceService: PriceService,
   ) { }
+
+  inventory: any = this.inventorySource.asObservable();
 
   getItems(): Observable<Ingredient[]> {
     let ingredients = this.http.get<Ingredient[]>(this.ingredientsUrl)
@@ -46,6 +50,9 @@ export class IngredientService {
     this.getItems().subscribe(inventory => {
       this.inventory = inventory;
     })
-    
+  }
+
+  changeInventory(inventory: Array<any>) {
+    this.inventorySource.next(inventory)
   }
 }

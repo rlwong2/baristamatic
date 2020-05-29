@@ -24,7 +24,6 @@ export class PriceService {
       prices.push(obj);
     })
 
-    console.log(prices);
     return prices;
   }
 
@@ -32,22 +31,20 @@ export class PriceService {
     let recipe = {};
     for (let i of this.menuItems) {
       if (i.name === menuItem.name) {
-        console.log('---', i.recipe)
         recipe = i.recipe;
       }
     }
 
-    let original = inventory.slice()
+    let inventoryCopy = inventory.slice()
 
-    for (let item of inventory) {
-      item.quantity -= recipe[item.name]
-      if (item.quantity < 0) {
+    for (let item of inventoryCopy) {
+      if (item.quantity - recipe[item.name] < 0) {
         console.log('cannot make drink')
-        inventory = original;
-        return false;
+        return [false, inventory];
       }
+      item.quantity -= recipe[item.name]
     }
 
-    return inventory;
+    return [true, inventoryCopy];
   }
 }

@@ -8,7 +8,7 @@ import { IngredientService } from '../ingredient.service';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  ingredients: Ingredient[]
+  ingredients: Ingredient[];
 
   constructor(private ingredientService: IngredientService) { }
 
@@ -22,9 +22,9 @@ export class InventoryComponent implements OnInit {
   }
 
   getItems(): void {
-    this.ingredientService.getItems().subscribe(inventory => {
-      this.ingredients = inventory;
-    })
+    this.ingredientService.inventory.subscribe(inventory => 
+      this.ingredients = inventory
+    )
   }
 
 }
