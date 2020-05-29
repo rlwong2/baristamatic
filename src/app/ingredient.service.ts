@@ -58,5 +58,6 @@ export class IngredientService {
 
   restockItems(restock: Array<any>): void {
     this.changeInventory(RESTOCK);
+    return this.inventory;
   }
 }

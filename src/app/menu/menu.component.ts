@@ -29,7 +29,6 @@ export class MenuComponent implements OnInit {
   }
 
   onSelect(menuItem: MenuItem): void {
-    console.log('selected menu item', menuItem)
     this.selectedDrink = menuItem;
   }
 

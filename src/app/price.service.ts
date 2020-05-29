@@ -40,7 +40,6 @@ export class PriceService {
 
     for (let item of inventoryCopy) {
       if (item.quantity - recipe[item.name] < 0) {
-        console.log('cannot make drink')
         return [false, inventory];
       }
       item.quantity -= recipe[item.name]
