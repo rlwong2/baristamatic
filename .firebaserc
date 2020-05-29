@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "baristamatic": {
+      "hosting": {
+        "BaristaMatic": [
+          "baristamatic"
+        ]
+      }
+    }
+  }
+}

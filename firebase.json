@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "BaristaMatic",
+      "public": "dist/BaristaMatic",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

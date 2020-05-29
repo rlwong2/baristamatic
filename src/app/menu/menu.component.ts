@@ -38,10 +38,10 @@ export class MenuComponent implements OnInit {
   }
 
   getMenu(): void {
-    this.menuService.getMenu().subscribe(menuItems => {
-      this.menuItems = menuItems;
-    })
-    let menu =  this.menuItems === undefined ? MENUITEMS : this.menuItems;
-    this.menuWithPrices = this.priceService.calcPrices(menu)
+    // this.menuService.getMenu().subscribe(menuItems => {
+    //   this.menuItems = menuItems;
+    // })
+    // let menu =  this.menuItems === undefined ? MENUITEMS : this.menuItems;
+    this.menuWithPrices = this.priceService.calcPrices(MENUITEMS)
   }
 }

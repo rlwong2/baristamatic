@@ -43,7 +43,6 @@ export class IngredientService {
         tap(_ => console.log('fetched items')),
         catchError(this.handleError<Ingredient[]>('getItems', []))
       );
-    console.log(ingredients)
     return ingredients;
   }
 
@@ -58,7 +57,6 @@ export class IngredientService {
   }
 
   restockItems(restock: Array<any>): void {
-    console.log(restock)
-    this.changeInventory(restock);
+    this.changeInventory(RESTOCK);
   }
 }
