@@ -5,6 +5,8 @@ import { PriceService } from '../price.service';
 import { MENUITEMS } from '../menuItems';
 import { INGREDIENTS } from '../ingredients';
 import { IngredientService } from '../ingredient.service';
+import {MatCardModule} from '@angular/material/card';
+
 
 @Component({
   selector: 'app-menu',

@@ -32,9 +32,8 @@ export class ItemDetailComponent implements OnInit {
   }
 
   onSelect(menuItem: MenuItem): void {
+    // Updates inventory on click
     let result = this.priceService.buyItem(this.inventory, menuItem);
-    console.log(result)
-
     // display error message if not enough inventory
     if (result[0] === false) {
       this.message = 'Not enough ingredients in inventory.  Please select another drink or ask attendant to restock.'

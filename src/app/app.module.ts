@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { MenuComponent } from './menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     InventoryComponent,
     ItemDetailComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { MenuComponent } from './menu/menu.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
