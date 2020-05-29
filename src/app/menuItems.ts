@@ -1,7 +1,7 @@
 import { MenuItem } from './menuItem';
 
 export const MENUITEMS: MenuItem[] = [
-    { id: 1, name: 'Coffee', ingredients: {
+    { id: 1, name: 'Coffee', recipe: {
         'Coffee': 3,
         'Decaf Coffee': 0,
         'Expresso': 0,
@@ -12,7 +12,7 @@ export const MENUITEMS: MenuItem[] = [
         'Cocoa': 0,
         'Whipped Cream': 0
     }},
-    { id: 2, name: 'Decaf Coffee', ingredients: {
+    { id: 2, name: 'Decaf Coffee', recipe: {
         'Coffee': 0,
         'Decaf Coffee': 3,
         'Expresso': 0,
@@ -23,7 +23,7 @@ export const MENUITEMS: MenuItem[] = [
         'Cocoa': 0,
         'Whipped Cream': 0
     }},
-    { id: 3, name: 'Caffe Latte', ingredients: {
+    { id: 3, name: 'Caffe Latte', recipe: {
         'Coffee': 0,
         'Decaf Coffee': 0,
         'Expresso': 2,
@@ -34,7 +34,7 @@ export const MENUITEMS: MenuItem[] = [
         'Cocoa': 0,
         'Whipped Cream': 0
     }},
-    { id: 4, name: 'Caffe Americano', ingredients: {
+    { id: 4, name: 'Caffe Americano', recipe: {
         'Coffee': 0,
         'Decaf Coffee': 0,
         'Expresso': 3,
@@ -45,7 +45,7 @@ export const MENUITEMS: MenuItem[] = [
         'Cocoa': 0,
         'Whipped Cream': 0
     }},
-    { id: 5, name: 'Caffe Mocha', ingredients: {
+    { id: 5, name: 'Caffe Mocha', recipe: {
         'Coffee': 0,
         'Decaf Coffee': 0,
         'Expresso': 1,
@@ -56,7 +56,7 @@ export const MENUITEMS: MenuItem[] = [
         'Cocoa': 1,
         'Whipped Cream': 1
     }},
-    { id: 6, name: 'Cappuccino', ingredients: {
+    { id: 6, name: 'Cappuccino', recipe: {
         'Coffee': 0,
         'Decaf Coffee': 0,
         'Expresso': 2,

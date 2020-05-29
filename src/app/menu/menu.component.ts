@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../menuItem';
 import { MenuService } from '../menu.service';
-import { MENUITEMS } from '../menuItems'
+import { PriceService } from '../price.service';
+import { MENUITEMS } from '../menuItems';
+import { INGREDIENTS } from '../ingredients';
+import { Ingredient } from '../ingredient';
+import { IngredientService } from '../ingredient.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,18 +15,28 @@ import { MENUITEMS } from '../menuItems'
 export class MenuComponent implements OnInit {
   menuItems: MenuItem[] = MENUITEMS;
   menuWithPrices: object;
+  ingredients: Ingredient[] = INGREDIENTS;
+  selectedItem: MenuItem;
 
   constructor(
-    private menuService: MenuService
+    private menuService: MenuService,
+    private priceService: PriceService,
+    private ingredientService: IngredientService
   ) { }
 
   ngOnInit(): void {
     this.getMenu();
   }
 
-  selectedItem: MenuItem;
   onSelect(menuItem: MenuItem): void {
+    console.log('selected menu item')
     this.selectedItem = menuItem;
+    console.log(this.menuItems)
+    this.ingredients = this.priceService.buyItem(this.ingredients, menuItem);
+  }
+
+  getIngredients(): void {
+    this.ingredientService.getItems().subscribe(ingredients => this.ingredients = ingredients);
   }
 
   getMenu(): void {
@@ -30,7 +44,7 @@ export class MenuComponent implements OnInit {
       this.menuItems = menuItems;
     })
     let menu =  this.menuItems === undefined ? MENUITEMS : this.menuItems;
-      this.menuWithPrices = this.menuService.calcPrices(menu)
+      this.menuWithPrices = this.priceService.calcPrices(menu)
       console.log(this.menuWithPrices)
   }
 }

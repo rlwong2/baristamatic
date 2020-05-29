@@ -4,13 +4,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { MenuItem } from './menuItem';
-import { MENUITEMS } from './menuItems';
 import { PriceService } from './price.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
+  menuItems: Array<any>;
+  menuWithPrices: Array<any>;
   private menuUrl = 'api/menuItems';
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -33,14 +34,20 @@ export class MenuService {
   ) { }
 
   getMenu(): Observable<MenuItem[]> {
-    return this.http.get<MenuItem[]>(this.menuUrl)
+    let menu = this.http.get<MenuItem[]>(this.menuUrl)
       .pipe(
         tap(_ => console.log('fetched menu')),
         catchError(this.handleError<MenuItem[]>('getMenu', []))
       );
+    
+    return menu;
   }
 
-  calcPrices(menuItems: Array<any>): object {
-    return this.prices.calcPrices(menuItems)
+  calcPrices(menuItems: Array<any>): Array<any> {
+    this.getMenu().subscribe(menuItems => {
+      this.menuItems = menuItems;
+    })
+    this.menuWithPrices = this.prices.calcPrices(this.menuItems);
+    return this.menuWithPrices;
   }
 }
