@@ -15,8 +15,9 @@ import { IngredientService } from '../ingredient.service';
 export class MenuComponent implements OnInit {
   menuItems: MenuItem[] = MENUITEMS;
   menuWithPrices: object;
-  ingredients: Ingredient[] = INGREDIENTS;
+  ingredients: any = INGREDIENTS;
   selectedItem: MenuItem;
+  message: string = '';
 
   constructor(
     private menuService: MenuService,
@@ -31,8 +32,15 @@ export class MenuComponent implements OnInit {
   onSelect(menuItem: MenuItem): void {
     console.log('selected menu item')
     this.selectedItem = menuItem;
-    console.log(this.menuItems)
-    this.ingredients = this.priceService.buyItem(this.ingredients, menuItem);
+
+    let result = this.priceService.buyItem(this.ingredients, menuItem);
+    this.ingredients = result === false ? this.ingredients : result;
+
+    // display error message if not enough inventory
+    if (result === false) {
+      this.message = 'Not enough ingredients in inventory.  Please select another drink or ask attendant to restock.'
+      setTimeout(() => this.message = '', 3000)
+    }
   }
 
   getIngredients(): void {

@@ -7,6 +7,7 @@ import { MenuItem } from './menuItem';
 })
 export class PriceService {
   menuItems: MenuItem[] = MENUITEMS;
+  ingredients: any = INGREDIENTS;
 
   calcPrices(menuItems: Array<any>) {
     let prices = []
@@ -27,7 +28,7 @@ export class PriceService {
     return prices;
   }
 
-  buyItem(inventory: Array<any>, menuItem: object) {
+  buyItem(inventory: Array<any>, menuItem: any ) {
     let recipe = {};
     for (let i of this.menuItems) {
       if (i.name === menuItem.name) {

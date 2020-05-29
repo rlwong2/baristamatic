@@ -11,6 +11,7 @@ import { INGREDIENTS } from './ingredients';
   providedIn: 'root'
 })
 export class IngredientService {
+  inventory: Array<any>;
   private ingredientsUrl = 'api/ingredients';
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -32,10 +33,19 @@ export class IngredientService {
   ) { }
 
   getItems(): Observable<Ingredient[]> {
-    return this.http.get<Ingredient[]>(this.ingredientsUrl)
+    let ingredients = this.http.get<Ingredient[]>(this.ingredientsUrl)
       .pipe(
         tap(_ => console.log('fetched items')),
         catchError(this.handleError<Ingredient[]>('getItems', []))
       );
+    console.log(ingredients)
+    return ingredients;
+  }
+
+  setInventory(): void {
+    this.getItems().subscribe(inventory => {
+      this.inventory = inventory;
+    })
+    
   }
 }
