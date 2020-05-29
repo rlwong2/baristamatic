@@ -1,6 +1,7 @@
 
 <div class="section-wrapper">
   <h2><i class="material-icons">local_drink</i>  Drinks Menu</h2>
+  <mat-divider></mat-divider>
   <mat-nav-list class="menuItems">
     <mat-list-item *ngFor="let menuItem of menuWithPrices" (click)="onSelect(menuItem)" [class.selected]="menuItem === selectedDrink"> 
       <div class="inventory-item">

@@ -41,10 +41,4 @@ export class ItemDetailComponent implements OnInit {
     }
   }
 
-  // getMenu(): void {
-  //   this.menuService.getMenu().subscribe(menuItems => {
-  //     this.menuItems = menuItems;
-  //   })
-  // }
-
 }

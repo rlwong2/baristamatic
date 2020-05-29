@@ -36,7 +36,7 @@ export class PriceService {
       }
     }
 
-    let inventoryCopy = inventory.slice()
+    let inventoryCopy = inventory;
 
     for (let item of inventoryCopy) {
       if (item.quantity - recipe[item.name] < 0) {

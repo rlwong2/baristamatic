@@ -6,6 +6,8 @@ import { BehaviorSubject } from 'rxjs';
 
 import { Ingredient } from './ingredient';
 import { INGREDIENTS } from './ingredients';
+import { RESTOCK } from './restock';
+
 import { PriceService } from './price.service';
 
 @Injectable({
@@ -13,8 +15,9 @@ import { PriceService } from './price.service';
 })
 export class IngredientService {
   private inventorySource = new BehaviorSubject(INGREDIENTS);
-  private ingredientsUrl = 'api/ingredients';
+  inventory: any = this.inventorySource.asObservable();
 
+  private ingredientsUrl = 'api/ingredients';
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   
@@ -34,8 +37,6 @@ export class IngredientService {
     private PriceService: PriceService,
   ) { }
 
-  inventory: any = this.inventorySource.asObservable();
-
   getItems(): Observable<Ingredient[]> {
     let ingredients = this.http.get<Ingredient[]>(this.ingredientsUrl)
       .pipe(
@@ -54,5 +55,10 @@ export class IngredientService {
 
   changeInventory(inventory: Array<any>) {
     this.inventorySource.next(inventory)
+  }
+
+  restockItems(restock: Array<any>): void {
+    console.log(restock)
+    this.changeInventory(restock);
   }
 }

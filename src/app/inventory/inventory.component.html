@@ -1,12 +1,19 @@
 <div class="inventory-wrapper">
     <h2><i class="material-icons">fastfood</i>  Inventory</h2>
-
+    <mat-divider></mat-divider>
     <mat-list>
+        <mat-list-item>
+            <div class="inventory-item">
+                <div>    INGREDIENT </div>
+                <div>QTY    </div>
+            </div>
+        </mat-list-item>
         <mat-list-item *ngFor="let ingredient of ingredients">
             <div class="inventory-item">
                 <div>{{ ingredient.name }} </div>
                 <div> {{ ingredient.quantity }}</div>
             </div>
         </mat-list-item>
-    </mat-list>
+    </mat-list><br />
+    <button mat-stroked-button (click)="onSelect()">RESTOCK</button>
 </div>
