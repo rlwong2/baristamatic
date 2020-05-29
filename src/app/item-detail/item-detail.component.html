@@ -1,11 +1,7 @@
-<div *ngIf="ingredient">
+<div *ngIf="menuItem">
 
-    <h2>{{ingredient.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{ingredient.id}}</div>
-    <div>
-        <label>name: 
-            <input [(ngModel)]="ingredient.name" placeholder="name"/>
-        </label>
-    </div>
+    <h2>{{menuItem.name | uppercase}}</h2>
+    <div>${{menuItem.price.toFixed(2)}}</div>
+    <div (click)="onSelect(menuItem)">BUY NOW</div>
     
 </div>

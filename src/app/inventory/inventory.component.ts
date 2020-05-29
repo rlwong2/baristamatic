@@ -16,11 +16,6 @@ export class InventoryComponent implements OnInit {
     this.getItems();
   }
 
-  selectedItem: Ingredient;
-  onSelect(ingredient: Ingredient): void {
-    this.selectedItem = ingredient;
-  }
-
   getItems(): void {
     this.ingredientService.inventory.subscribe(inventory => 
       this.ingredients = inventory

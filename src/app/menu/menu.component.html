@@ -1,9 +1,11 @@
 <h2>Menu</h2>
 
 <ul class="menuItems">
-    <li *ngFor="let menuItem of menuWithPrices" (click)="onSelect(menuItem)"> 
-      {{ menuItem.name }} - {{ menuItem.price.toFixed(2) }}
-    </li>
-  </ul>
+  <li *ngFor="let menuItem of menuWithPrices" (click)="onSelect(menuItem)" [class.selected]="menuItem === selectedDrink"> 
+    {{ menuItem.name }} - ${{ menuItem.price.toFixed(2) }}
+  </li>
+</ul>
 
-  <div>{{ message }}</div>
+<app-item-detail [menuItem]="selectedDrink"></app-item-detail>
+
+<div>{{ message }}</div>

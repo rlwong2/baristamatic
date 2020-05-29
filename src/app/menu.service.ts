@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 import { MenuItem } from './menuItem';
+import { MENUITEMS } from './menuItems';
 import { PriceService } from './price.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
-  menuItems: Array<any>;
+  private menuSource = new BehaviorSubject(MENUITEMS)
+  menuItems: any = this.menuSource.asObservable()
   menuWithPrices: Array<any>;
   private menuUrl = 'api/menuItems';
 
@@ -49,5 +52,9 @@ export class MenuService {
     })
     this.menuWithPrices = this.prices.calcPrices(this.menuItems);
     return this.menuWithPrices;
+  }
+
+  changeMenu(menuItems: any) {
+    this.menuSource.next(menuItems)
   }
 }
