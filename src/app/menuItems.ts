@@ -1,7 +1,10 @@
 import { MenuItem } from './menuItem';
 
 export const MENUITEMS: MenuItem[] = [
-    { id: 1, name: 'Coffee', recipe: {
+    { id: 1, 
+        name: 'Coffee',
+        description: 'Little better than your office coffee', 
+        recipe: {
         'Coffee': 3,
         'Decaf Coffee': 0,
         'Expresso': 0,
@@ -12,7 +15,10 @@ export const MENUITEMS: MenuItem[] = [
         'Cocoa': 0,
         'Whipped Cream': 0
     }},
-    { id: 2, name: 'Decaf Coffee', recipe: {
+    { id: 2, 
+        name: 'Decaf Coffee',
+        description: 'Coffee without the kick', 
+        recipe: {
         'Coffee': 0,
         'Decaf Coffee': 3,
         'Expresso': 0,
@@ -23,7 +29,10 @@ export const MENUITEMS: MenuItem[] = [
         'Cocoa': 0,
         'Whipped Cream': 0
     }},
-    { id: 3, name: 'Caffe Latte', recipe: {
+    { id: 3,
+        name: 'Caffe Latte',
+        description: 'Espresso with steamed milk & foam', 
+        recipe: {
         'Coffee': 0,
         'Decaf Coffee': 0,
         'Expresso': 2,
@@ -34,7 +43,10 @@ export const MENUITEMS: MenuItem[] = [
         'Cocoa': 0,
         'Whipped Cream': 0
     }},
-    { id: 4, name: 'Caffe Americano', recipe: {
+    { id: 4, 
+        name: 'Caffe Americano', 
+        description: 'Espresso & water', 
+        recipe: {
         'Coffee': 0,
         'Decaf Coffee': 0,
         'Expresso': 3,
@@ -45,7 +57,10 @@ export const MENUITEMS: MenuItem[] = [
         'Cocoa': 0,
         'Whipped Cream': 0
     }},
-    { id: 5, name: 'Caffe Mocha', recipe: {
+    { id: 5, 
+        name: 'Caffe Mocha', 
+        description: 'Latte with chocolate', 
+        recipe: {
         'Coffee': 0,
         'Decaf Coffee': 0,
         'Expresso': 1,
@@ -56,7 +71,10 @@ export const MENUITEMS: MenuItem[] = [
         'Cocoa': 1,
         'Whipped Cream': 1
     }},
-    { id: 6, name: 'Cappuccino', recipe: {
+    { id: 6, 
+        name: 'Cappuccino', 
+        description: 'Espresso with steamed milk & foamed milk', 
+        recipe: {
         'Coffee': 0,
         'Decaf Coffee': 0,
         'Expresso': 2,

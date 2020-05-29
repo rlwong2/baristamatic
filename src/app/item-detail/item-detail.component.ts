@@ -36,8 +36,8 @@ export class ItemDetailComponent implements OnInit {
     let result = this.priceService.buyItem(this.inventory, menuItem);
     // display error message if not enough inventory
     if (result[0] === false) {
-      this.message = 'Not enough ingredients in inventory.  Please select another drink or ask attendant to restock.'
-      setTimeout(() => this.message = '', 3000)
+      this.message = 'Sold out!'
+      setTimeout(() => this.message = '', 5000)
     }
   }
 

@@ -20,6 +20,7 @@ export class PriceService {
       let obj = {
         name: item.name,
         price: total,
+        description: item.description,
       }
       prices.push(obj);
     })

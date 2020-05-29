@@ -5,7 +5,6 @@ import { PriceService } from '../price.service';
 import { MENUITEMS } from '../menuItems';
 import { INGREDIENTS } from '../ingredients';
 import { IngredientService } from '../ingredient.service';
-import {MatCardModule} from '@angular/material/card';
 
 
 @Component({
@@ -18,7 +17,6 @@ export class MenuComponent implements OnInit {
   menuWithPrices: object;
   ingredients: any = INGREDIENTS;
   selectedDrink: MenuItem;
-  message: string = '';
 
   constructor(
     private menuService: MenuService,
