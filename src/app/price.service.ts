@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { INGREDIENTS } from './ingredients';
 import { MENUITEMS } from './menuItems';
 import { MenuItem } from './menuItem';
+import { IngredientService } from '../ingredient.service';
 @Injectable({
   providedIn: 'root'
 })
 export class PriceService {
   menuItems: MenuItem[] = MENUITEMS;
-  ingredients: any = INGREDIENTS;
 
   calcPrices(menuItems: Array<any>) {
     let prices = []

@@ -42,6 +42,6 @@ export class MenuComponent implements OnInit {
       this.menuItems = menuItems;
     })
     let menu =  this.menuItems === undefined ? MENUITEMS : this.menuItems;
-      this.menuWithPrices = this.priceService.calcPrices(menu)
+    this.menuWithPrices = this.priceService.calcPrices(menu)
   }
 }

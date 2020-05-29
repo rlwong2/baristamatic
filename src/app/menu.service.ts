@@ -51,6 +51,7 @@ export class MenuService {
       this.menuItems = menuItems;
     })
     this.menuWithPrices = this.prices.calcPrices(this.menuItems);
+    console.log(this.menuWithPrices)
     return this.menuWithPrices;
   }
 

@@ -15,7 +15,8 @@ import { IngredientService } from '../ingredient.service';
 
 export class ItemDetailComponent implements OnInit {
   @Input() menuItem: any;
-  menuItems: any = MENUITEMS;
+  menuItems: any;
+  inventory: any;
 
   message: string = '';
 
@@ -26,14 +27,13 @@ export class ItemDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getMenu();
+    this.menuService.menuItems.subscribe(menuItems => this.menuItems = menuItems)
+    this.ingredientService.inventory.subscribe(inventory => this.inventory = inventory)
   }
 
   onSelect(menuItem: MenuItem): void {
-    console.log(this.menuItems)
-    let result = this.priceService.buyItem(this.menuItems, menuItem);
+    let result = this.priceService.buyItem(this.inventory, menuItem);
     console.log(result)
-    this.menuItems = result[1];
 
     // display error message if not enough inventory
     if (result[0] === false) {
@@ -42,10 +42,10 @@ export class ItemDetailComponent implements OnInit {
     }
   }
 
-  getMenu(): void {
-    this.menuService.getMenu().subscribe(menuItems => {
-      this.menuItems = menuItems;
-    })
-  }
+  // getMenu(): void {
+  //   this.menuService.getMenu().subscribe(menuItems => {
+  //     this.menuItems = menuItems;
+  //   })
+  // }
 
 }
